@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://metrochi.soroshbabaei9.workers.dev/sitemap.xml
