@@ -1,0 +1,4 @@
+- [ ] Add release signing configuration to android/app/build.gradle using metrochi.keystore
+- [ ] Build signed release: gradlew assembleRelease
+- [ ] Confirm APK is not unsigned (no app-release-unsigned.apk)
+- [ ] Provide final command + APK path for installation

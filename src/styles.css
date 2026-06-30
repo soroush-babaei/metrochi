@@ -1,0 +1,207 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Metrochi design system — Tehran Metro inspired.
+ * Dark navy base with neon line accents and glassmorphism.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-line-1: #E63946;
+  --color-line-2: #273B91;
+  --color-line-3: #26ABE3;
+  --color-line-4: #FEE111;
+  --color-line-5: #0C9448;
+  --color-line-6: #F16DA9;
+  --color-line-7: #813E9A;
+
+  --font-fa: "Vazirmatn", "IRANSans", system-ui, sans-serif;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Medium.woff2") format("woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Black.woff2") format("woff2");
+  font-weight: 900;
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Dark navy base */
+  --background: oklch(0.16 0.04 265);
+  --foreground: oklch(0.97 0.01 250);
+
+  --card: oklch(0.22 0.05 265 / 0.55);
+  --card-foreground: oklch(0.97 0.01 250);
+  --popover: oklch(0.20 0.05 265);
+  --popover-foreground: oklch(0.97 0.01 250);
+
+  /* Accent set via JS based on user setting; default = line 3 cyan */
+  --primary: oklch(0.72 0.16 220);
+  --primary-foreground: oklch(0.12 0.04 265);
+
+  --secondary: oklch(0.26 0.05 265);
+  --secondary-foreground: oklch(0.97 0.01 250);
+  --muted: oklch(0.24 0.04 265);
+  --muted-foreground: oklch(0.70 0.03 255);
+  --accent: oklch(0.30 0.08 265);
+  --accent-foreground: oklch(0.97 0.01 250);
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 250);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.72 0.16 220);
+
+  --glow: oklch(0.72 0.16 220 / 0.45);
+}
+
+.light {
+  --background: oklch(0.98 0.01 250);
+  --foreground: oklch(0.18 0.04 265);
+  --card: oklch(1 0 0 / 0.7);
+  --card-foreground: oklch(0.18 0.04 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.04 265);
+  --secondary: oklch(0.94 0.01 250);
+  --secondary-foreground: oklch(0.18 0.04 265);
+  --muted: oklch(0.94 0.01 250);
+  --muted-foreground: oklch(0.45 0.02 255);
+  --accent: oklch(0.92 0.02 250);
+  --accent-foreground: oklch(0.18 0.04 265);
+  --border: oklch(0 0 0 / 8%);
+  --input: oklch(0 0 0 / 10%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    font-family: var(--font-fa);
+    font-feature-settings: "ss01", "ss02";
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    background-image:
+      radial-gradient(900px 600px at 85% -10%, color-mix(in oklab, var(--color-line-3) 25%, transparent), transparent 60%),
+      radial-gradient(700px 500px at -10% 20%, color-mix(in oklab, var(--color-line-7) 22%, transparent), transparent 60%),
+      radial-gradient(700px 500px at 50% 110%, color-mix(in oklab, var(--color-line-6) 18%, transparent), transparent 60%);
+    background-attachment: fixed;
+    min-height: 100dvh;
+  }
+}
+
+@layer components {
+  .glass {
+    background: color-mix(in oklab, var(--color-card) 70%, transparent);
+    backdrop-filter: blur(22px) saturate(160%);
+    border: 1px solid var(--color-border);
+    box-shadow:
+      0 1px 0 0 color-mix(in oklab, white 6%, transparent) inset,
+      0 20px 60px -20px rgba(0, 0, 0, 0.55);
+  }
+  .glass-strong {
+    background: color-mix(in oklab, var(--color-card) 85%, transparent);
+    backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--color-border);
+  }
+  .neon-ring {
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--color-primary) 60%, transparent),
+      0 0 24px 0 var(--glow);
+  }
+  .text-glow {
+    text-shadow: 0 0 18px var(--glow);
+  }
+}
+
+/* Animated metro background lines */
+.metro-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.35;
+}
+.metro-bg svg { width: 100%; height: 100%; }
+.metro-bg path {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px currentColor);
+  stroke-dasharray: 8 12;
+  animation: dash 40s linear infinite;
+}
+@keyframes dash {
+  to { stroke-dashoffset: -800; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* RTL helpers */
+[dir="rtl"] .flip-x { transform: scaleX(-1); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--color-primary) 40%, transparent);
+  border-radius: 999px;
+}
